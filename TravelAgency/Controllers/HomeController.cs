@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using TravelAgency.BL;
+using TravelAgency.BL.DTO;
+using TravelAgency.BL.Infrastructure;
 
 namespace TravelAgency.Controllers
 {
@@ -12,11 +16,17 @@ namespace TravelAgency.Controllers
         {
             return View();
         }
+        public ActionResult result()
+        {
+            CountryPointsParser parser = new CountryPointsParser();
 
+            var jsonSerialiser = new JavaScriptSerializer();
+            var json = jsonSerialiser.Serialize(parser.load(@"C:\Users\Женя\documents\visual studio 2015\Projects\TravelAgency\TravelAgency\Files\result.txt"));
+            return Json(json);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -26,5 +36,6 @@ namespace TravelAgency.Controllers
 
             return View();
         }
+
     }
 }
