@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 <body>
-    <canvas width="1000" height="1000"></canvas>
+    <canvas width="2000" height="1000"></canvas>
     <script>
 
         $(document).ready(function () {
@@ -17,14 +17,24 @@
                     var i = 0;
                     var j = 1;
                     for (i = 0; i < items.length; i++) {
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
 
-                        ctx.moveTo(items[i].Points[0].X, items[i].Points[0].Y);
+                        ctx.lineWidth = 1;
+                        ctx.beginPath()
+                        ctx.moveTo(items[i].Points[0].X, items[i].Points[0].Y );
                         for (j = 1; j < items[i].Points.length; j++) {
-                            ctx.lineTo(items[i].Points[j].X, items[i].Points[j].Y);
+
+                            if (!items[i].Points[j].breaker) {
+                                ctx.lineTo(items[i].Points[j].X, items[i].Points[j].Y );
+                            }
+                            else {
+
+                             //  ctx.lineTo(items[i].Points[j].X * 1.5, items[i].Points[j].Y * 1.5);
+                                ctx.closePath();
+                                ctx.moveTo(items[i].Points[j+1].X, items[i].Points[j+1].Y);
+                            }
                         }
-                        ctx.closePath(); ctx.stroke();
+                        ctx.closePath();
+                        ctx.stroke();
                     }
                 }
             });
@@ -32,7 +42,7 @@
         });
 
 
-     
+
     </script>
 
 </body>
