@@ -4,12 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="~/Content/menu.css" />
+    <link rel="stylesheet" href="~/Content/map.css" />
     <script type="text/javascript" src="~/Scripts/jquery-3.1.0.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+    <div class="header">
+        <div class="header-logo">@Html.ActionLink(" ", "Index", "Home", null, new { @class = "navbar-brand" })</div>    
+        <div class="header-menu">
+            <ul>
+                <li><a href="@Url.Action("Index","Home")">горящие туры</a></li>
+                <li><a href="@Url.Action("Index","Home")">экскурсионные туры</a></li>
+                <li><a href="@Url.Action("Index","Home")">поиск тура</a></li>
+                <li><a href="@Url.Action("Index","Home")">туры компании</a></li>
+                <li><a href="@Url.Action("Index","Home")">отзывы</a></li>
+                <li><a href="@Url.Action("Index","Home")">контакты</a></li>
+            </ul> 
+        </div>
+       <div class="header-login">
+
+       </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

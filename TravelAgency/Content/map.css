@@ -1,0 +1,9 @@
+﻿body {
+}
+#map{
+    margin-left:auto;
+    margin-right:auto;
+    background:#ffffff;
+    width:400px;
+    height:400px;
+}
